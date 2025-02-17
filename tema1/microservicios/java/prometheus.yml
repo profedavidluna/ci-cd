@@ -7,7 +7,7 @@ scrape_configs:
     static_configs:
       - targets: ['api-gateway:8079']  # Nombre del servicio en Docker
 
-  - job_name: 'auth-service' #change
+  - job_name: 'auth-service' #change other
     metrics_path: '/actuator/prometheus'
     static_configs:
       - targets: ['auth-service:8080']
