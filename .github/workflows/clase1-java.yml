@@ -4,11 +4,11 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'tema1/java-app/**'  # Solo se activa con cambios en esta ruta
+      - 'tema1/java/**'  # Solo se activa con cambios en esta ruta
   pull_request:
     branches: [ main ]
     paths:
-      - 'tema1/java-app/**'
+      - 'tema1/java/**'
 
 jobs:
   build-and-test:
