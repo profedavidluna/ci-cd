@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: clase1/java-app  # Ejecuta comandos en esta carpeta
+        working-directory: tema1/microservicios/java  # Ejecuta comandos en esta carpeta
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
