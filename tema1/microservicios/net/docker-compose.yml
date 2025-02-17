@@ -1,0 +1,44 @@
+version: '3.4'
+ 
+name: micro_services_net
+services:
+  cliente_api:
+    container_name: cliente_api
+    build:
+      context: ./Clientes/.
+      dockerfile: ./Dockerfile 
+    ports:
+      - "5000:8080"
+      - "5001:8081"
+    depends_on:
+      - docker_sqlserver
+
+  cuentas_api:
+    container_name: cuentas_api
+    build:
+      context: ./Cuentas/.
+      dockerfile: .\Dockerfile 
+    ports:
+      - "5002:8080"
+      - "5003:8081"
+    depends_on:
+      - cliente_api
+ 
+  tarjtas_api:
+    container_name: tarjtas_api
+    build:
+      context: ./Tarjetas/.
+      dockerfile: .\Dockerfile 
+    ports:
+      - "5004:8080"
+      - "5005:8081"
+    depends_on:
+      - cuentas_api
+ 
+  docker_sqlserver:
+    container_name: docker_sqlserver
+    build:
+      context: .
+      dockerfile: db.Dockerfile
+    ports:
+      - "1433:1433"
